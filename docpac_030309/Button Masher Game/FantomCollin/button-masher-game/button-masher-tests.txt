@@ -81,23 +81,23 @@ Result: Pass
 Test 11
 Required direction: None
 Joystick input: None
-Action: 
-Expected result: 
-Actual result: 
+Action: Reconnect the controller
+Expected result: Says controller connected
+Actual result: Says controller connected
 Result: Pass
 
 Test 12
-Required direction: 
-Joystick input: 
-Action: 
-Expected result: 
-Actual result: 
+Required direction: None
+Joystick input: None
+Action: Let timer run to 0
+Expected result: Timer stops going down
+Actual result: Timer stopped going down
 Result: Pass
 
 Test 13
-Required direction: 
-Joystick input: 
-Action: 
-Expected result: 
-Actual result: 
+Required direction: Up
+Joystick input: Up
+Action: Let timer run to 0
+Expected result: Direction remains as is and the number doesnt change
+Actual result: Direction remains as is and the number doesnt change
 Result: Pass
