@@ -65,8 +65,8 @@ function loop() {
         if (keys.d) player.x += player.speed
         if (player.x < 0) player.x = 0;
         if (player.y < 0) player.y = 0;
-        if (player.x < 0) player.x = 0;
-        if (player.y < 0) player.y = 0;
+        if (player.x + player.w > 800) player.x = 770;
+        if (player.y + player.h > 600) player.y = 570;
         player.draw()
         requestAnimationFrame(loop)
 }
