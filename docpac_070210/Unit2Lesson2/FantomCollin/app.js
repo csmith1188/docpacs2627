@@ -18,26 +18,38 @@ app.get('/form', (req, res) => {
 });
 
 app.post('/form', (req, res) => {
-    const submission = req.body.input
+    const submission = req.body.input;
 
     if (!submission || submission.trim === '') {
         res.status(400).send('400 Error: Please enter a valid request >:(')
     } else {
         console.log('Submission recieved!');
         res.send(`You answered: ${submission}! :D`);
+
     };
 
 });
 
 app.get('/query', (req, res) => {
-    const message = req.query.message
+    const message = req.query.message;
 
-    if (typeof message !== 'string' || message.trim === '') {
-        return res.status(400).send('400 Error: Please send a message using the correct format: /query?message=[YOUR%20MESSAGE]')
+    if (typeof message !== 'string' || message.trim() === '') {
+        res.status(400).send('400 Error: Please send a message using the correct format: /query?message=YOUR%20MESSAGE')
     } else {
-        res.send(`Your message: ${message}`)
-    }
-})
+        res.send(`Your message: ${message}`);
+    };
+
+});
+
+app.get('/urlparams/:paramname', (req, res) => {
+    const param = req.params.paramname;
+    if (!param || param.trim() === '') {
+        res.status(400).send(`400 Error: Please use the correct format or a proper input. `);
+    } else {
+        res.send(param);
+    };
+
+});
 
 app.listen(port, () => {
     console.log(`${appName} is running at port ${port}`);
