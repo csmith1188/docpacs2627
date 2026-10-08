@@ -1,4 +1,5 @@
 require('dotenv').config();
+const middleware = require('./utils/requestLogger')
 const express = require('express');
 const port = process.env.PORT;
 const appName = process.env.APP_NAME;
@@ -6,6 +7,8 @@ const app = express();
 const path = require('path');
 
 app.use(express.static('public'));
+
+app.use(middleware)
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -33,7 +36,7 @@ app.post('/form', (req, res) => {
 </head>
 
 <body>
-    <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION
+    <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION</h1>
 </body>
 
 </html>`)
