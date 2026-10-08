@@ -6,9 +6,10 @@ const app = express();
 const path = require('path');
 const requestLogger = require('./utils/requestLogger.js');
 
+app.use(requestLogger);
+
 app.use(express.static('public'));
 
-app.use(requestLogger);
 
 app.use(express.urlencoded({ extended: true }));
 
