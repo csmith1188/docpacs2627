@@ -11,7 +11,7 @@
     "dev": "nodemon app.js"
   },
   "dependencies": {
-    "dotenv": "^18.0.5",
+    "dotenv": "^18.0.6",
     "express": "^5.2.1",
     "path": "^0.12.7"
   },

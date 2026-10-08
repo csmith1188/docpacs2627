@@ -1,14 +1,14 @@
 require('dotenv').config();
-const middleware = require('./utils/requestLogger')
 const express = require('express');
 const port = process.env.PORT;
 const appName = process.env.APP_NAME;
 const app = express();
 const path = require('path');
+const requestLogger = require('./utils/requestLogger.js');
 
 app.use(express.static('public'));
 
-app.use(middleware)
+app.use(requestLogger);
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -39,11 +39,11 @@ app.post('/form', (req, res) => {
     <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION</h1>
 </body>
 
-</html>`)
+</html>`);
     } else {
         console.log('Submission recieved!');
         res.send(`
-            
+            <!DOCTYPE html>
             <html lang="en">
         
         <head>
@@ -67,7 +67,8 @@ app.get('/query', (req, res) => {
     const message = req.query.message;
 
     if (typeof message !== 'string' || message.trim() === '') {
-        res.status(400).send(`<!DOCTYPE html>
+        res.status(400).send(`
+        <!DOCTYPE html>
         <html lang="en">
         
         <head>
@@ -81,10 +82,10 @@ app.get('/query', (req, res) => {
     <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION | /query?message=YOUR%20MESSAGE</h1>
 </body>
 
-</html>`)
+</html>`);
     } else {
         res.send(`
-            <!DOCTYPE html>
+        <!DOCTYPE html>
         <html lang="en">
         
         <head>
@@ -95,7 +96,7 @@ app.get('/query', (req, res) => {
 </head>
 
 <body>
-    <h1 class='element'>Your message: ${message}</h1>>
+    <h1 class='element'>Your message: ${message}</h1>
 </body>
 
 </html>`);
@@ -160,8 +161,8 @@ app.all(('/*splat'), (req, res) => {
     <h1 class='element'>404 ERROR: PAGE NOT FOUND :/</h1>>
 </body>
 
-</html>`)
-})
+</html>`);
+});
 
 app.listen(port, () => {
     console.log(`${appName} is running at port ${port}`);
