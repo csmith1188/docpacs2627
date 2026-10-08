@@ -21,10 +21,40 @@ app.post('/form', (req, res) => {
     const submission = req.body.input;
 
     if (!submission || submission.trim === '') {
-        res.status(400).send('400 Error: Please enter a valid request >:(')
+        res.status(400).send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION
+</body>
+
+</html>`)
     } else {
         console.log('Submission recieved!');
-        res.send(`You answered: ${submission}! :D`);
+        res.send(`
+            
+            <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'> You answered: ${submission}! :D </h1>
+</body>
+
+</html>`);
 
     };
 
@@ -34,9 +64,38 @@ app.get('/query', (req, res) => {
     const message = req.query.message;
 
     if (typeof message !== 'string' || message.trim() === '') {
-        res.status(400).send('400 Error: Please send a message using the correct format: /query?message=YOUR%20MESSAGE')
+        res.status(400).send(`<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION | /query?message=YOUR%20MESSAGE</h1>
+</body>
+
+</html>`)
     } else {
-        res.send(`Your message: ${message}`);
+        res.send(`
+            <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'>Your message: ${message}</h1>>
+</body>
+
+</html>`);
     };
 
 });
@@ -44,12 +103,62 @@ app.get('/query', (req, res) => {
 app.get('/urlparams/:paramname', (req, res) => {
     const param = req.params.paramname;
     if (!param || param.trim() === '') {
-        res.status(400).send(`400 Error: Please use the correct format or a proper input. `);
+        res.status(400).send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'> 400 ERROR: PLEASE USE CORRECT FORMAT OR ENTER A VALID SUBMISSION</h1>
+</body>
+
+</html>`);
     } else {
-        res.send(param);
+        res.send(`
+            
+            <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'>${param}</h1>
+</body>
+
+</html>`);
     };
 
 });
+
+app.all(('/*splat'), (req, res) => {
+    res.status(404).send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 class='element'>404 ERROR: PAGE NOT FOUND :/</h1>>
+</body>
+
+</html>`)
+})
 
 app.listen(port, () => {
     console.log(`${appName} is running at port ${port}`);
