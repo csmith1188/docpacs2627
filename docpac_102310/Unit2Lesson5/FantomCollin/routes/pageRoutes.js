@@ -4,7 +4,7 @@ const path = require('path');
 const root = express.Router()
 
 root.get('/', (req, res) => {
-    res.render(__dirname, '');
+    res.render('index', { appName: process.env.APP_NAME });
 });
 
 module.exports = root;

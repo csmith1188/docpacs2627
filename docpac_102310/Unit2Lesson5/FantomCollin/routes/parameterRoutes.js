@@ -8,21 +8,7 @@ parama.get('/query', (req, res) => {
     if (typeof message !== 'string' || message.trim() === '') {
         res.status(400).sendFile(path.join(__dirname, '../public/badReqError'))
     } else {
-        res.send(`<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-    <h1 id="queryRes" class='element'>Your message: ${message}</h1>
-</body>
-
-</html>`);
+        res.respond('queryResponse', { appName: process.env.APP_NAME, userInput: submission, query: message});
     };
 
 });
