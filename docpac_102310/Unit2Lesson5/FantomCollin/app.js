@@ -14,7 +14,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views/'));
+app.set('views', path.join(__dirname, 'views'));
 
 // Imports route endpoints from separate files
 // apart of the "controller" layer of MVC, as it handles controller logic.
