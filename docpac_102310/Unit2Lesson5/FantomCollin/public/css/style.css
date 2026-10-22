@@ -3,10 +3,18 @@ body {
 }
 
 * {
+    display: flex;
     flex: auto;
+    align-items: center;
     text-align: center;
+    flex-direction: column;
+    padding: 0;
 }
 
 .element{
     background-color: antiquewhite;
+}
+
+.class{
+    background-color: red;
 }

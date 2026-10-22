@@ -6,9 +6,9 @@ const parama = express.Router();
 parama.get('/query', (req, res) => {
     const message = req.query.message;
     if (typeof message !== 'string' || message.trim() === '') {
-        res.status(400).sendFile(path.join(__dirname, '../public/badReqError'));
+        res.status(400).render('error', {})
     } else {
-        res.render('queryResponse', { appName: process.env.APP_NAME, query: message});
+        res.render('queryResponse', { appName: process.env.APP_NAME, query: message, currentPage: 'query', someValue: ''});
     };
 
 });
