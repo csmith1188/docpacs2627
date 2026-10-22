@@ -23,7 +23,7 @@ app.use(require('./routes/pageRoutes.js'));
 app.use(require('./routes/parameterRoutes.js'));
 
 app.all(('/*splat'), (req, res) => {
-    res.status(404).render('error', { appName: process.env.APP_NAME, status: res.statusCode, statusInstr: 'PAGE NOT FOUND'});
+    res.status(404).render('error', { appName: process.env.APP_NAME, status: res.statusCode, statusInstr: 'PAGE NOT FOUND', currentPage: '' });
 });
 
 app.listen(port, () => {

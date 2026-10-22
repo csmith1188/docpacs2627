@@ -6,9 +6,9 @@ const parama = express.Router();
 parama.get('/query', (req, res) => {
     const message = req.query.message;
     if (typeof message !== 'string' || message.trim() === '') {
-        res.status(400).render('error', {})
+        return res.status(400).render('error', { appName: process.env.APP_NAME, status: res.statusCode, statusInstr: 'Please enter a valid response', currentPage: 'query', });
     } else {
-        res.render('queryResponse', { appName: process.env.APP_NAME, query: message, currentPage: 'query', someValue: ''});
+        res.render('queryResponse', { appName: process.env.APP_NAME, query: message, currentPage: 'query', });
     };
 
 });
@@ -16,9 +16,9 @@ parama.get('/query', (req, res) => {
 parama.get('/urlparams/:paramname', (req, res) => {
     const param = req.params.paramname;
     if (!param || param.trim() === '') {
-        res.status(400).sendFile(path.join(__dirname, '../public/badReqError'));
+        return res.status(400).render('error', { appName: process.env.APP_NAME, status: res.statusCode, statusInstr: 'Please enter a valid response', currentPage: 'query' });;
     } else {
-        res.render('parameterResponse', { appName: process.env.APP_NAME, parame: param });
+        res.render('parameterResponse', { appName: process.env.APP_NAME, parame: param, currentPage: 'query' });
     };
 
 });
