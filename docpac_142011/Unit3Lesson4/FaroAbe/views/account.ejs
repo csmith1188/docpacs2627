@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+    <h1>Account</h1>
+
+    <p><strong>Username:</strong>
+        <%= user.username %>
+    </p>
+    <p><strong>Email:</strong>
+        <%= user.email %>
+    </p>
+    <% if (user.display_name) { %>
+        <p><strong>Display Name:</strong>
+            <%= user.display_name %>
+        </p>
+        <% } %>
+            <p><strong>Member Since:</strong>
+                <%= new Date(user.created_at).toLocaleDateString() %>
+            </p>
+
+            <form method="POST" action="/logout">
+                <button type="submit">Logout</button>
+            </form>
+
+            <%- include('partials/footer') %>
