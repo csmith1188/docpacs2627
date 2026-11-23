@@ -1,0 +1,214 @@
+Test 1
+
+Feature: Registration
+Action: Register a new user with a valid username, email, and password
+Expected: The user account is created successfully and the user can log in
+Actual: The account is created successfully and the user is redirected to the homepage
+Result: Pass
+
+
+Test 2
+
+Feature: Duplicate registration
+Action: Attempt to register using an email address that is already registered
+Expected: Registration is rejected and an appropriate error message is displayed
+Actual: Registration is rejected and the message "Email already exists" is displayed
+Result: Pass
+
+
+Test 3
+
+Feature: Correct login
+Action: Log in using a registered email and correct password
+Expected: The user is authenticated and redirected to the homepage
+Actual: The user logs in successfully and is redirected to the homepage
+Result: Pass
+
+
+Test 4
+
+Feature: Incorrect login
+Action: Attempt to log in using an incorrect password
+Expected: Login is rejected and an error message is displayed
+Actual: Login is rejected and the message "Invalid email or password" is displayed
+Result: Pass
+
+
+Test 5
+
+Feature: Logout
+Action: Log in and click the logout button
+Expected: The user session is terminated and the user is logged out
+Actual: The session is terminated and the user is redirected to the login page
+Result: Pass
+
+
+Test 6
+
+Feature: Protected new-thread route
+Action: Attempt to access the new-thread page without logging in
+Expected: Access is denied and the user is redirected to the login page
+Actual: The user is redirected to the login page and cannot access the new-thread page
+Result: Pass
+
+
+Test 7
+
+Feature: Protected reply route
+Action: Attempt to access the reply functionality without logging in
+Expected: The user cannot submit a reply without being authenticated
+Actual: The reply submission is blocked and the user is redirected to the login page
+Result: Pass
+
+
+Test 8
+
+Feature: Valid thread creation
+Action: Log in and create a thread with a valid title and body
+Expected: The thread is saved and displayed on the homepage
+Actual: The thread is successfully saved and appears on the homepage
+Result: Pass
+
+
+Test 9
+
+Feature: Blank thread title
+Action: Attempt to create a thread without entering a title
+Expected: The thread is not created and a validation message is displayed
+Actual: The thread is rejected and the message "Title is required" is displayed
+Result: Pass
+
+
+Test 10
+
+Feature: Blank thread body
+Action: Attempt to create a thread without entering any body text
+Expected: The thread is not created and a validation message is displayed
+Actual: The thread is rejected and the message "Body is required" is displayed
+Result: Pass
+
+
+Test 11
+
+Feature: Valid reply
+Action: Open an existing thread, enter a valid reply, and submit it
+Expected: The reply is saved and displayed under the correct thread
+Actual: The reply is successfully saved and displayed under the correct thread
+Result: Pass
+
+
+Test 12
+
+Feature: Blank reply
+Action: Attempt to submit a reply without entering any text
+Expected: The reply is rejected and a validation message is displayed
+Actual: The reply is not submitted and the message "Reply cannot be empty" is displayed
+Result: Pass
+
+
+Test 13
+
+Feature: Homepage thread order
+Action: Create multiple threads and reload the homepage
+Expected: Threads are displayed in the correct chronological order, with the newest thread first
+Actual: The newest thread appears first, followed by older threads
+Result: Pass
+
+
+Test 14
+
+Feature: Thread detail page
+Action: Click on a thread from the homepage
+Expected: The correct thread title, body, and replies are displayed
+Actual: The selected thread opens successfully and displays its title, body, and replies
+Result: Pass
+
+
+Test 15
+
+Feature: Reply order
+Action: Submit two replies in sequence and reload the thread
+Expected: The first reply appears before the second reply
+Actual: The first reply appears before the second reply
+Result: Pass
+
+
+Test 16
+
+Feature: Thread username profile link
+Action: Click the username displayed next to a thread
+Expected: The user's profile page opens correctly
+Actual: The correct user profile page opens successfully
+Result: Pass
+
+
+Test 17
+
+Feature: Reply username profile link
+Action: Click the username displayed next to a reply
+Expected: The profile page of the reply author opens correctly
+Actual: The correct reply author's profile page opens successfully
+Result: Pass
+
+
+Test 18
+
+Feature: Profile thread listing
+Action: Open a user's profile page
+Expected: All threads created by that user are displayed
+Actual: The profile page displays the threads created by the selected user
+Result: Pass
+
+
+Test 19
+
+Feature: Profile reply listing
+Action: Open a user's profile page and view their replies
+Expected: All replies created by that user are displayed
+Actual: The profile page displays the replies created by the selected user
+Result: Pass
+
+
+Test 20
+
+Feature: Profile chronological order
+Action: Open a user's profile page and inspect the order of their threads and replies
+Expected: Threads and replies are displayed in chronological order
+Actual: The user's threads and replies appear in the correct chronological order
+Result: Pass
+
+
+Test 21
+
+Feature: Missing thread
+Action: Attempt to access a thread using an ID that does not exist
+Expected: An appropriate not-found response is displayed without causing an application error
+Actual: A 404 not-found page is displayed and the application continues working normally
+Result: Pass
+
+
+Test 22
+
+Feature: Missing user
+Action: Attempt to access a profile using a user ID that does not exist
+Expected: An appropriate not-found response is displayed
+Actual: A 404 not-found page is displayed instead of an invalid profile
+Result: Pass
+
+
+Test 23
+
+Feature: Authorship from session
+Action: Log in as one user and attempt to create a thread or reply
+Expected: The content is associated with the currently authenticated user rather than a user identity supplied by the form
+Actual: The thread and reply are associated with the logged-in user's account
+Result: Pass
+
+
+Test 24
+
+Feature: Password hash stored instead of plaintext
+Action: Register a new user and inspect the stored password value in the database
+Expected: The password is stored as a secure hash rather than readable plaintext
+Actual: The database contains a hashed password and does not contain the original plaintext password
+Result: Pass

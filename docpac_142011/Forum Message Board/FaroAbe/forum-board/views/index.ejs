@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+    <h1>Forum Threads</h1>
+
+    <% if (threads.length===0) { %>
+        <p>No threads yet. <% if (currentUser) { %><a href="/threads/new">Create the first one!</a>
+                <% } %>
+        </p>
+        <% } else { %>
+            <% threads.forEach(thread=> { %>
+                <div class="thread-item">
+                    <h2><a href="/threads/<%= thread.id %>">
+                            <%= thread.title %>
+                        </a></h2>
+                    <p>By <a href="/users/<%= thread.user_id %>">
+                            <%= thread.username %>
+                        </a>
+                        on <%= new Date(thread.created_at).toLocaleDateString() %>
+                    </p>
+                </div>
+                <% }) %>
+                    <% } %>
+
+                        <%- include('partials/footer') %>

@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <h1>
+        <%= user.username %>'s Profile
+    </h1>
+
+    <p>Member since <%= new Date(user.created_at).toLocaleDateString() %>
+    </p>
+
+    <h2>Post History (<%= posts.length %>)</h2>
+
+    <% if (posts.length===0) { %>
+        <p>This user hasn't posted anything yet.</p>
+        <% } else { %>
+            <% posts.forEach(post=> { %>
+                <div class="post-item">
+                    <% if (post.type==='thread' ) { %>
+                        <h3>Thread: <a href="/threads/<%= post.id %>">
+                                <%= post.title %>
+                            </a></h3>
+                        <p>
+                            <%= post.body.substring(0, 100) %>...
+                        </p>
+                        <% } else { %>
+                            <h3>Reply in: <a href="/threads/<%= post.thread_id %>">
+                                    <%= post.thread_title %>
+                                </a></h3>
+                            <p>
+                                <%= post.body %>
+                            </p>
+                            <% } %>
+                                <p class="meta">
+                                    <%= new Date(post.created_at).toLocaleDateString() %>
+                                </p>
+                </div>
+                <% }) %>
+                    <% } %>
+
+                        <%- include('partials/footer') %>

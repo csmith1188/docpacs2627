@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<h1><%= thread.title %></h1>
+
+<div class="thread-post">
+    <p><%= thread.body %></p>
+    <p class="meta">Posted by <a href="/users/<%= thread.user_id %>"><%= thread.username %></a> 
+       on <%= new Date(thread.created_at).toLocaleDateString() %></p>
+</div>
+
+<hr>
+
+<h2>Replies (<%= replies.length %>)</h2>
+
+<% if (replies.length === 0) { %>
+    <p>No replies yet. Be the first!</p>
+<% } else { %>
+    <% replies.forEach(reply => { %>
+        <div class="reply">
+            <p><%= reply.body %></p>
+            <p class="meta">By <a href="/users/<%= reply.user_id %>"><%= reply.username %></a> 
+               on <%= new Date(reply.created_at).toLocaleDateString() %></p>
+        </div>
+    <% }) %>
+<% } %>
+
+<hr>
+
+<% if (currentUser) { %>
+    <h3>Add a Reply</h3>
+    <form method="POST" action="/threads/<%= thread.id %>/replies">
+        <textarea name="body" rows="5" required></textarea>
+        <button type="submit">Post Reply</button>
+    </form>
+<% } else { %>
+    <p><a href="/login">Login</a> to reply</p>
+<% } %>
+
+<%- include('partials/footer') %>
