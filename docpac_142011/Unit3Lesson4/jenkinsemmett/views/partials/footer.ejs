@@ -1,0 +1,17 @@
+<footer>
+    <button id="footButton" onclick="returnHome()">Return Home</button>
+    <button id="footButton" onclick="moveToForm()">Form</button>
+
+    <% if(userId){ %>
+        <button id="footButton" onclick="goAccount()">Account</button>
+        <button id="footButton" onclick="goLogout()">Sign Out</button>
+    <% } else{ %>
+        <button id="footButton" onclick="goLogin()">Log In</button>
+        <button id="footButton" onclick="goRegister()">Register</button>
+    <% } %>
+    
+</footer>
+
+</body>
+
+</html>
