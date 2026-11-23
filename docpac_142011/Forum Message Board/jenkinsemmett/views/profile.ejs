@@ -1,0 +1,28 @@
+<%- include ('partials/header') %>   
+
+    <h1> <%= title %> </h1>
+    <p>Created At: <%= time %> </p>
+
+    <% all.forEach(item=> { %>
+        <% if(item.type == "thread"){ %>
+            <div id="post">
+                <b onclick="location.replace('/threads/' + '<%= item.tID %>')">
+                    <%= item.title %>
+                </b>
+                <p>
+                    Created On: <%= item.created_at %>
+                </p>
+            </div>
+        <% } else { %>
+            <div id="response">
+                <p id="body" onclick="location.replace('/threads/' + '<%= item.thread_id %>')">
+                    <%= item.body %>
+                </p>
+                <p>
+                    Created On: <%= item.created_at %>
+                </p>
+            </div>
+        <% } %>
+    <% }); %>
+
+<%- include ('partials/footer') %>

@@ -1,0 +1,43 @@
+<%- include ('partials/header') %>    
+    <div id="main">
+        <h1>
+            <%= all.title %>
+        </h1>
+        <b onclick="location.replace('/users/' + '<%= all.uID %>')"></p>
+            Created On: <%= all.created_at %>
+            Created By: <%= all.username %>
+        </b>
+        <p id="body"><%= all.body %></p>
+    </div>
+    <% replies.forEach(item=> { %>
+            <div id="response">
+                <b onclick="location.replace('/users/' + '<%= item.uID %>')">
+                    Created On: <%= item.created_at %> Created By: <%= item.username %>
+                </b>
+                <p>
+                    <%= item.body %>
+                </p>
+            </div>
+            
+    <% }); %>
+    <div id="response">
+        <% if(username){ %>
+            <h2>Reply To Thread</h2>
+                <form action='/threads/<%= all.tID %>/replies' method="post">
+                    <% if(error){ %>
+                        <p style="color: red;"><%-error %></p>
+                    <% } %>
+
+                    <label for="passW">Create The Response's Body:</label><br>
+                    <textarea id="body" name="body" rows="5" cols="23" placeholder="My Response's Body" required></textarea><br>
+
+                    <br>
+                    <input type="submit" value="Create Response">
+                </form>
+        <% } else { %>
+            <h1>Log In To Respond</h1>
+            <button onclick='location.replace("/login")'>Log In</button>
+        <% } %>
+        
+    </div>
+<%- include ('partials/footer') %>

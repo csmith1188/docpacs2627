@@ -1,0 +1,20 @@
+<%- include ('partials/header') %>    
+
+<h1>Forum Bar</h1>
+
+    <% threads.forEach(item=> { %>
+            <div id="post">
+                <b onclick="location.replace('/threads/' + '<%= item.tID %>')">
+                    <%= item.title %>
+                </b>
+                <p>
+                    Created On: <%= item.created_at %>
+                </p>
+                <p onclick="location.replace('/users/' + '<%= item.uID %>')">
+                    Created By: <%= item.username %>
+                </p>
+            </div>
+            
+    <% }); %>
+
+<%- include ('partials/footer') %>

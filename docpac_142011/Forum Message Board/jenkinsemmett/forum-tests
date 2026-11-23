@@ -1,0 +1,167 @@
+Test: 1
+Feature: Registration
+Action: Create A New Account Via Form
+Expected: Immediately Logged In As New User
+Actual: Immediately Logged In As New User
+Result: Pass
+
+Test: 2
+Feature: Duplicate Registration
+Action: Create Account With Username Of Pre-Existing User
+Expected: Rejected + Error Message
+Actual: Rejected + Error Message
+Result: Pass
+
+Test: 3
+Feature: Correct Login
+Action: Log In With Correct Credentials
+Expected: Signed In As Specified User
+Actual: Signed In As Specified User
+Result: Pass
+
+Test: 4
+Feature: Incorrect Login
+Action: Log In With Incorrect Credentials
+Expected: Rejected + Error Message
+Actual: Rejected + Error Message
+Result: Pass
+
+Test: 5
+Feature: Logout
+Action: Press Logout Button
+Expected: Immediately Logged Out, Sent To Login Screen
+Actual: Immediately Logged Out, Sent To Login Screen
+Result: Pass
+
+Test: 6
+Feature: Protected New Thread Route
+Action: Attempt To Access New Thread Route While Logged Out
+Expected: Booted To Login Screen
+Actual: Booted To Login Screen 
+Result: Pass
+
+Test: 7
+Feature: Protected Reply Route
+Action: Attempt To Access Reply Route While Logged Out
+Expected: Booted To Login Screen
+Actual: Booted To Login Screen 
+Result: Pass
+
+Test: 8
+Feature: Valid Thread Creation
+Action: Create A Thread
+Expected: The Thread Appears In /
+Actual: The Thread Appears In /
+Result: Pass
+
+Test: 9
+Feature: Blank Thread Title
+Action: Create A Thread With No Title
+Expected: Rejected + Error Message
+Actual: Rejected + Error Message
+Result: Pass
+
+Test: 10
+Feature: Blank Thread Body
+Action: Create A Thread With No Body
+Expected: Rejected + Error Message
+Actual: Rejected + Error Message
+Result: Pass
+
+Test: 11
+Feature: Valid Reply
+Action: Create A Reply With A Body
+Expected: New Reply Appears At Bottom Of Thread
+Actual: New Reply Appears At Bottom Of Thread
+Result: Pass
+
+Test: 12
+Feature: Blank Reply
+Action: Create A Reply With No Body
+Expected: Rejected + Error Message
+Actual: Rejected W/out Error Message
+Result: Pass... Enough
+
+Test: 13
+Feature: Homepage Thread Order
+Action: Create New Thread
+Expected: New Thread Appears At Bottom
+Actual: New Thread Appears At Bottom
+Result: Pass
+
+Test: 14
+Feature: Thread Detail Page
+Action: Click On Thread Title
+Expected: Sent To Thread Page
+Actual: Sent To Thread Page
+Result: Pass
+
+Test: 15
+Feature: Reply Order
+Action: Create New Reply
+Expected: New Reply Appears At Bottom
+Actual: New Reply Appears At Bottom
+Result: Pass
+
+Test: 16
+Feature: Thread Username Profile Link
+Action: Click On Username Of Thread Starter
+Expected: Go To User's Profile
+Actual: Go To User's Profile
+Result: Pass
+
+Test: 17
+Feature: Reply Username Profile Link
+Action: Click On Username Of Replier
+Expected: Go To User's Profile
+Actual: Go To User's Profile
+Result: Pass
+
+Test: 18
+Feature: Profile Thread Listing
+Action: Create A New Thread (On A Fresh Profile) Then Go To Profile
+Expected: The Thread Appears On Profile Page
+Actual: The Thread Appears On Profile Page
+Result: Pass
+
+Test: 19
+Feature: Profile Reply Listing
+Action: Reply To A Thread (On A Fresh Profile) Then Go To Profile
+Expected: The Reply Appears On Profile Page
+Actual: The Reply Appears On Profile Page
+Result: Pass
+
+Test: 20
+Feature: Profile Chronological Order
+Action: Create 2 Threads, Minutes Apart
+Expected: The Older One Appears On Top
+Actual: The Older One Appears On Top
+Result: Pass
+
+Test: 21
+Feature: Missing Thread
+Action: Navigated To A Thread Page That Doesn't Exist
+Expected: 404 Error Screen
+Actual: 404 Error Screen
+Result: Pass
+
+Test: 22
+Feature: Missing User
+Action: Navigated To A User Page That Doesn't Exist
+Expected: 404 Error Screen
+Actual: 404 Error Screen
+Result: Pass
+
+Test: 23
+Feature: Authorship From Session
+Action: Open Program On Different Browser
+Expected: Not Logged In
+Actual: Not Logged In
+Result: Pass
+
+Test: 24
+Feature: Password Hash Stored Instead Of Plaintext
+Action: Log A User From Users Table
+Expected: Password Is Hashed
+Actual: Password Is Hashed
+Result: Pass

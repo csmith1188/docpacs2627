@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title><%- title %></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <button onclick='location.replace("/")'>Home</button>
+  <% if(username){ %>
+    <button onclick='location.replace("/threads/new")'>Create A New Thread</button>
+  <% } else { %>
+    <button onclick='location.replace("/login")'>Log In</button>
+    <button onclick='location.replace("/register")'>Register</button>
+  <% } %>
+
+  <% if(username){ %>
+    <button onclick='fetch("/logout", { method: "POST", }); location.replace("/login")'>Log Out</button>
+    <b><%= username %></b>
+  <% } %>
+</header>

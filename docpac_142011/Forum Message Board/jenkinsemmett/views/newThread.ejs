@@ -1,0 +1,18 @@
+<%- include ('partials/header') %>    
+<h1 id="centered">Create A New Thread</h1>
+    
+    <form action="/threads" method="post">
+        <% if(error){ %>
+            <p style="color: red;"><%-error %></p>
+        <% } %>
+        
+        <label for="title">Input The Thread's Title:</label>
+        <input type="text" id="title" name="title" placeholder="My Thread" required><br>
+
+        <label for="passW">Create The Thread's Body:</label><br>
+        <textarea id="body" name="body" rows="5" cols="33" placeholder="My Thread's Body" required></textarea><br>
+
+        <br>
+        <input type="submit" value="Create Thread">
+    </form>
+<%- include ('partials/footer') %>

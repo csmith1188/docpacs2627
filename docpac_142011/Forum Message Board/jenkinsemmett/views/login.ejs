@@ -1,0 +1,16 @@
+<%- include ('partials/header') %>
+<h1 id="centered">Register An Account For Forum Board.</h1>
+    <form id="centered" action="/login" method="post">
+        <% if(error){ %>
+            <p style="color: red;"><%-error %></p>
+        <% } %>
+        <label for="name">Input Your Username:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="passW">Input Password:</label>
+        <input type="password" id="passW" name="passW" required><br>
+
+        <br>
+        <input type="submit" value="Log In">
+    </form>   
+<%- include ('partials/footer') %>
