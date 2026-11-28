@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+    <form method="post" action="/register">
+        <h1>Here You'll Make An Account!</h1>
+        <% if (error) { %>
+            <p style="color: tomato;"><b>
+                    <%= error %>
+                </b></p>
+            <% } %>
+
+                <label for="username"><b>Username</b></label>
+                <br>
+                <input type="text" placeholder="Enter A Username" name="username" id="username" required>
+                <br>
+                <label for="password"><b>Password</b></label>
+                <br>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <br>
+                <button type="submit" class="registerbtn">Register</button>
+                <br>
+                <p><b>By Making An Account Your Agreeing To Our Term's And Service!</b></p>
+                <p><b>Don't Dilly Dally! We Can See What You Do On This Website!!!!</b></p>
+                <div>
+                    <p>Have An Account Already?!<a href="/login"> Sign In!</a></p>
+                </div>
+                <b>Copyright From 2025-2025</b>
+    </form>
+
+    <!---lesson says dont add email so make sure you fact check app.js!-->
+    <%- include('partials/footer') %>

@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+    <form method="post" action="/register">
+        <h1>Here You'll Make An Account!</h1>
+        <% if (error) { %>
+            <p style="color: tomato;"><b>
+                    <%= error %>
+                </b></p>
+            <% } %>
+
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter A Username" name="username" id="username" required>
+                <br>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                <br>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <br>
+                <label for="PasswordRepeated"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="PasswordRepeated" id="PasswordRepeated"
+                    required>
+                <br>
+                <label>
+                    Favorite Color?
+                    <input type="color" name="color">
+                </label>
+                <br>
+                <button type="submit" class="registerbtn">Register</button>
+                <br>
+                <div>
+                    <p>Have An Account Already?!<a href="/login"> Sign In!</a></p>
+                </div>
+    </form>
+    <%- include('partials/footer') %>

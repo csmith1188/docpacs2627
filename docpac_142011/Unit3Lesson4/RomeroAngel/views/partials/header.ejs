@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+    <h1>
+        <%= message %>
+    </h1>
+
+    <% if (isLoggedIn) { %>
+        <p>Here You'll Be Taken The <a href="/account">Account Page!</a></p>
+        <form method="POST" action="/logout">
+            <p>If That's All For Today!<button type="submit">Sign Out!</button></p>
+        </form>
+        <% } else { %>
+            <p>New User! Make An Account <a href="/register" action="/logout">Here!</a></p>
+            <p>Have An Account Already No Worries!<a href="/login">Sign In!</a></p>
+            <% } %>

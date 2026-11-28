@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+    <p>
+        Username:
+        <%= username %>
+    </p>
+    <br>
+    <p>
+        Email:
+        <%= email %>
+    </p>
+    <br>
+    <p>
+        Your Favorite Color!:
+        <%= color %>
+    </p>
+
+    <br>
+    <p>
+        Account Time Creation:
+        <%= timestamp %>
+    </p>
+    <br>
+    <form method="POST" action="/logout">
+        <button type="submit">Want To Log Out? Click Here!</button>
+    </form>
+    <%- include('partials/footer') %>

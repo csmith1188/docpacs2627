@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+    <form method="post" action="/register">
+        <h1>Here You'll Make An Account!</h1>
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter A Username" name="username" id="username" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+        <label for="passwordRepeated"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="passwordRepeated" id="passwordRepeated" required>
+        <hr>
+        <button type="submit" class="registerbtn">Register</button>
+
+        <div><p>Have An Account Already?!<a href="/login"> Sign In!</a></p></div>
+    </form>
+    <%- include('partials/footer') %>
